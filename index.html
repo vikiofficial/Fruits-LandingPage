@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fruits - Website</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<section>
+		<div class="bg"></div>
+		<header>
+			<a href="#" class="logo">Fruits</a>
+			<ul class="navbar">
+				<li><a href="#" class="active">Home</a></li>
+				<li><a href="#">Menu</a></li>
+				<li><a href="#">Gallery</a></li>
+				<li><a href="#">Contact</a></li>
+		</header>
+
+		<div class="content">
+			<div class="textBox">
+				<h2>Eat Frest Fruits EveryDay</h2>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+				<a href="#">Learn More</a>
+			</div>
+
+			<div class="imgBox">
+				<img src="apple.png" class="fruits">
+			</div>
+		</div>
+
+		<ul class="thumb">
+			<li data-text="Apple" class="active"><img src="apple.png" onclick="imgSlider('apple.png');changeBgColor('#fc4a55')"></li>
+			<li data-text="Mango"> <img src="mango.png" onclick="imgSlider('mango.png');changeBgColor('#ffcc02')"> </li>
+			<li data-text="WaterMelon"> <img src="watermelon.png" onclick="imgSlider('watermelon.png');changeBgColor('#92ba3c')"> </li>
+			<li data-text="Dragon Fruits"> <img src="dragonFruits.png" onclick="imgSlider('dragonFruits.png');changeBgColor('#fb6cb2')"> </li>
+			<li data-text="PineApple"> <img src="pineApple.png" onclick="imgSlider('pineApple.png');changeBgColor('#ffb42b')"> </li>
+		</ul>
+
+		<ul class="sci">
+			<li><a href="#"><img src="facebook.png"></li>
+			<li><a href="#"><img src="twitter.png"></li>
+			<li><a href="#"><img src="instagram.png"></li>
+		</ul>
+
+	</section>
+
+	<script>
+
+		//for image slider
+		function imgSlider(anything)
+		{
+			document.querySelector('.fruits').src = anything;
+		}
+
+		//change background color
+		function changeBgColor(color)
+		{
+			const bg = document.querySelector('.bg');
+			bg.style.background = color;
+		}
+
+		//active block in slider
+		let el=document.querySelectorAll('.thumb li');
+		for(let i=0;i<el.length; i++)
+		{
+			el[i].onclick = function()
+			{
+				var c=0;
+				while(c<el.length)
+				{
+					el[c++].className = 'check';
+				}
+				el[i].className = 'check active';
+			}
+		}
+	</script>
+</body>
+</html>
